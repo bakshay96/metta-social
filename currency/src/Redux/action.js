@@ -1,17 +1,21 @@
 import axios from "axios";
-import { GET_SEARCH_FAILURE, GET_SEARCH_REQUEST, GET_SEARCH_SUCCESS } from "./actionTypes";
+import { GET_SEARCH_FAILURE, GET_SEARCH_NOTDATA, GET_SEARCH_REQUEST, GET_SEARCH_SUCCESS } from "./actionTypes";
 
 
-const getSearchRequestAction =()=>{
+export const getSearchRequestAction =()=>{
     return {type:GET_SEARCH_REQUEST};
 };
 
-const getSearchSuccessAction =(payload)=>{
+export const getSearchSuccessAction =(payload)=>{
     return {type:GET_SEARCH_SUCCESS,payload}
 }
 
-const getSearchFailureAction =()=>{
+export const getSearchFailureAction =()=>{
     return {type:GET_SEARCH_FAILURE};
+}
+
+export const getSearchNodataAction =()=>{
+    return {type:GET_SEARCH_NOTDATA};
 }
 
 
@@ -24,21 +28,25 @@ let url = "https://restcountries.com/v3.1/currency";
 //let input = inputValues.toUpperCase();
 export const getSearchResult =(inputValue)=>(dispatch)=>{
    let  input = inputValue.toUpperCase();
+   console.log("Action input",inputValue);
     try {
         dispatch(getSearchRequestAction());
         axios
             .get(`${url}/${input}`)
             .then((res)=>{
-                if(res.data.length)
+                console.log("fetch request",res.data)
+                if(res.data.length>1)
                 {
 
                     dispatch(getSearchSuccessAction(res.data));
                 }
                 else{
-                dispatch(getSearchSuccessAction([{}]));
+                    console.log("fetch else block")
+                dispatch(getSearchNodataAction());
                 }
             })
             .catch(()=>{
+                console.log("acton catch")
                 dispatch(getSearchFailureAction());
             })
     } catch (error) {

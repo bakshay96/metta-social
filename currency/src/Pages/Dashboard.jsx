@@ -4,13 +4,16 @@ import { CountryCard } from "../components/CountryCard";
 import { Box, grid } from "@chakra-ui/react";
 import "./Dashboard.css";
 const Dashboard = () => {
-  const data = useSelector((store) => store.data);
-  console.log("home ", data.data);
+  const store = useSelector((store)=>{
+    return store;
+  });
+  console.log(store.data,store.isLoading,store.isError,store,"dashboard")
+  
   return (
     <>
        
       <Box className="box-container">
-        {data?.map((e, i) => {
+        {store.data.length>1?store.data.map((e, i) => {
           return (
             <CountryCard
               id={i}
@@ -21,7 +24,7 @@ const Dashboard = () => {
               flag={e.flags.png}
             />
           );
-        })}
+        }):""}
       </Box>
       
     </>
