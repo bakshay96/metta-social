@@ -43,9 +43,9 @@ export const CountryCard = ({
         <Stack mt="6" spacing="3" textAlign={"center"}>
           <Heading size="md">{name.common}</Heading>
           <Text color="blue.600" fontSize={"1rem"}>
-            <span color="blue.200">Captial City :</span> <b>{capital[0]} </b>
+            <span color="blue.200" >Captial City :</span> <b>{capital[0]} </b>
           </Text>
-          <Text color="blue.600" fontSize="xl">
+          <Text color="blue.600" fontSize="1rem">
             <span color="blue.200">Region :</span> <b>{region} </b>
           </Text>
           {Object.entries(currencies).map(([currencyCode, currencyInfo]) => {
