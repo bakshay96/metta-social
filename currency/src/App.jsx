@@ -5,7 +5,7 @@ import { SearchBar } from "./components/SearchBar";
 import Dashboard from "./Pages/Dashboard";
 import { CountryCard } from "./components/CountryCard";
 import { useSelector } from "react-redux";
-import { Box, Flex, Heading, Spinner, Stack, Text } from "@chakra-ui/react";
+import { Box, Flex, FormLabel, Heading, Spinner, Stack, Text } from "@chakra-ui/react";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -17,7 +17,7 @@ function App() {
     <div className="main">
       <SearchBar />
       {isLoading && !isError ? (
-        <Stack direction="row" spacing={4} display={"flex"} justifyContent={"center"} alignItems={"center"}>
+        <Stack direction="row" spacing={2} display={"flex"} flexDir={"column"} justifyContent={"center"} alignItems={"center"}>
           <Spinner
             thickness="4px"
             speed="0.65s"
@@ -26,6 +26,7 @@ function App() {
             size="xl"
             mb={"2rem"}
           />
+          <FormLabel color={"blueviolet"}>Loading...</FormLabel>
         </Stack>
       ) : initialState && !isError ? (
         <div className="err">
@@ -42,15 +43,19 @@ function App() {
       ) : (
         ""
       )}
-      {initialState && data.length == 0 ? (
+      {initialState && data.length == 0  ? (
         <img
           className="main-img"
           src="https://cdn.pixabay.com/photo/2015/09/30/08/25/money-965060_640.jpg"
           alt="allflags"
         />
-      ) : (
+      ) : !isLoading && !initialState && ! isError?(
         <Dashboard />
-      )}
+      ):<img
+      className="main-img"
+      src="https://cdn.pixabay.com/photo/2015/09/30/08/25/money-965060_640.jpg"
+      alt="allflags"
+    />}
     </div>
   );
 }
