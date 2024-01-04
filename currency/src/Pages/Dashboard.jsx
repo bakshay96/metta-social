@@ -16,12 +16,14 @@ const Dashboard = () => {
         {store.data.length>1?store.data.map((e, i) => {
           return (
             <CountryCard
+            key={i}
               id={i}
               name={e.name}
               capital={e.capital}
               region={e.region}
               currencies={e.currencies}
               flag={e.flags.png}
+              
             />
           );
         }):""}

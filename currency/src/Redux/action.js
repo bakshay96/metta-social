@@ -27,6 +27,7 @@ export const getSearchNodataAction =()=>{
 let url = "https://restcountries.com/v3.1/currency";
 //let input = inputValues.toUpperCase();
 export const getSearchResult =(inputValue)=>(dispatch)=>{
+    getSearchRequestAction();
    let  input = inputValue.toUpperCase();
    console.log("Action input",inputValue);
     try {
@@ -35,7 +36,7 @@ export const getSearchResult =(inputValue)=>(dispatch)=>{
             .get(`${url}/${input}`)
             .then((res)=>{
                 console.log("fetch request",res.data)
-                if(res.data.length>1)
+                if(res.data.length>0)
                 {
 
                     dispatch(getSearchSuccessAction(res.data));

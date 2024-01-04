@@ -28,42 +28,35 @@ export const SearchBar = () => {
   const [search, setSearch] = useState("");
   //const [input, setInput] = useState("");
   const [placeholder, setPlaceholder] = useState(0);
-  const { input, handleInputChange } = useDebouncedApiCall(getSearchResult, 2000);
+  const { input, handleInputChange } = useDebouncedApiCall(getSearchResult, 1000);
   const dispatch = useDispatch();
   const { data, isLoading, isError } = useSelector((store) => {
     return store;
   });
-  console.log(data)
-
+  console.log("Serach",data,isLoading,isError);
 
   return (
     <>
-      <Box maxW="50%" textAlign={"center"} m="auto" marginTop="0px">
+      <Box maxW="50%" textAlign={"center"} m="auto" marginTop="0px" mb={"2rem"}>
         <Heading color={"teal.500" } padding={"5"} >Search World by Currency Code</Heading>
         <InputGroup w={"100%"} borderRadius="md" size="lg">
           <InputLeftElement
             pointerEvents="none"
-            children={<Search2Icon color="gray.600" />}
+            color={"black"}
+            children={<Search2Icon color="blue.400" />}
           />
           <Input
+          color={"blue"}
+          _placeholder={{ opacity: 1, color: 'gray.500' }}
             value={input}
             onChange={(e) => handleInputChange(e.target.value)}
             type="text"
             placeholder={`Search world by currency code like INR,USD,EUR`}
             border="1px solid #949494"
+            
           />
 
-          <InputRightAddon p={0} border="none">
-            <Button
-              size="lg"
-              borderLeftRadius={1}
-              borderRightRadius={3.3}
-              border="1px solid #949494"
-            >
-              Search
-            </Button>
-            {/* <Search searchInput = {search} /> */}
-          </InputRightAddon>
+        
         </InputGroup>
         {/* {isLoading ? (
           <Box className="loader">
