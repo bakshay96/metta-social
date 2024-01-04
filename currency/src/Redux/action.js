@@ -29,20 +29,20 @@ let url = "https://restcountries.com/v3.1/currency";
 export const getSearchResult =(inputValue)=>(dispatch)=>{
     getSearchRequestAction();
    let  input = inputValue.toUpperCase();
-   console.log("Action input",inputValue);
+  // console.log("Action input",inputValue);
     try {
         dispatch(getSearchRequestAction());
         axios
             .get(`${url}/${input}`)
             .then((res)=>{
-                console.log("fetch request",res.data)
+               // console.log("fetch request",res.data)
                 if(res.data.length>0)
                 {
 
                     dispatch(getSearchSuccessAction(res.data));
                 }
                 else{
-                    console.log("fetch else block")
+                    //console.log("fetch else block")
                 dispatch(getSearchNodataAction());
                 }
             })

@@ -26,19 +26,20 @@ import useDebouncedApiCall from './useDebounced';
 
 export const SearchBar = () => {
   const [search, setSearch] = useState("");
-  //const [input, setInput] = useState("");
   const [placeholder, setPlaceholder] = useState(0);
-  const { input, handleInputChange } = useDebouncedApiCall(getSearchResult, 1000);
+  const { input, handleInputChange } = useDebouncedApiCall(getSearchResult, 2000);  // custome hook access
   const dispatch = useDispatch();
-  const { data, isLoading, isError } = useSelector((store) => {
+  const { data, isLoading, isError } = useSelector((store) => {            //store access
     return store;
   });
-  console.log("Serach",data,isLoading,isError);
+ // console.log("Serach",data,isLoading,isError);
 
   return (
     <>
       <Box maxW="50%" textAlign={"center"} m="auto" marginTop="0px" mb={"2rem"}>
         <Heading color={"teal.500" } padding={"5"} >Search World by Currency Code</Heading>
+
+        {/* //search bar */}
         <InputGroup w={"100%"} borderRadius="md" size="lg">
           <InputLeftElement
             pointerEvents="none"

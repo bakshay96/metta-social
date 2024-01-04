@@ -11,11 +11,11 @@ const Dashboard = () => {
   
   return (
     <>
-       
+       {/* main container */}
       <Box className="box-container">
         {store.data.length>1?store.data.map((e, i) => {
           return (
-            <CountryCard
+            <CountryCard                   // passing  props to the card module
             key={e.eara}
               id={i}
               name={e.name}

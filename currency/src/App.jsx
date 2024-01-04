@@ -12,10 +12,11 @@ function App() {
   const { data, isLoading, isError, initialState } = useSelector((store) => {
     return store;
   });
+  console.log("app",data,isLoading,isError,initialState);
   return (
     <div className="main">
       <SearchBar />
-      {isLoading ? (
+      {isLoading && !isError ? (
         <Stack direction="row" spacing={4} display={"flex"} justifyContent={"center"} alignItems={"center"}>
           <Spinner
             thickness="4px"
@@ -26,16 +27,16 @@ function App() {
             mb={"2rem"}
           />
         </Stack>
-      ) : initialState ? (
+      ) : initialState && !isError ? (
         <div className="err">
           <Heading textAlign={"center"} color={"blue.300"} mt={"10px"}>
-            Currently no data available....
+            Currently no result found....
           </Heading>{" "}
         </div>
       ) : isError ? (
         <div className="err">
           <Heading textAlign={"center"} color={"blue.300"} mt={"10px"}>
-            Server Error....
+            Error..! 404 Not Found...
           </Heading>{" "}
         </div>
       ) : (

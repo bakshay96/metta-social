@@ -21,7 +21,7 @@ export const CountryCard = ({
   currencies,
   id,
 }) => {
-  console.log("capital card",capital)
+  //console.log("capital card",capital)
   return (
     <Card
       maxW="sm"
