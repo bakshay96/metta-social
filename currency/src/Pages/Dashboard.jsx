@@ -7,7 +7,7 @@ const Dashboard = () => {
   const store = useSelector((store)=>{
     return store;
   });
-  console.log(store.data,store.isLoading,store.isError,store,"dashboard")
+ // console.log(store.data,store.isLoading,store.isError,store,"dashboard")
   
   return (
     <>
@@ -16,7 +16,7 @@ const Dashboard = () => {
         {store.data.length>1?store.data.map((e, i) => {
           return (
             <CountryCard
-            key={i}
+            key={e.eara}
               id={i}
               name={e.name}
               capital={e.capital}

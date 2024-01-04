@@ -8,7 +8,7 @@ const useDebouncedApiCall = (apiFunction, delay) => {
   });
   const dispatch = useDispatch();
   const [input, setInput] = useState("");
-  console.log("input",input);
+  //console.log("input",input);
   const [debouncedInput, setDebouncedInput] = useState("");
   useEffect(() => {
     getSearchRequestAction();
@@ -23,9 +23,9 @@ const useDebouncedApiCall = (apiFunction, delay) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      // Call your API function with debounced input
+      // Calling  API function with debounced input
      
-      dispatch(getSearchResult(input));
+      dispatch(getSearchResult(debouncedInput));
       // const result = await apiFunction(debouncedInput);
 
       console.log(data);
