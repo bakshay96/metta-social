@@ -7,7 +7,7 @@
 
 ## Project Description
 
-<p>The metta-social Currency  App is a web application built using React. It allows users to take input as a currency code and fetch information about that currency from an external API. after submisson, the app displays the fetched information in a visually appealing manner.</p>
+<p>The metta-social Currency  App is a web application built using React. It allows users to take input as a currency code and fetch information about that currency from an external API. After submission, the app displays the fetched information in a visually appealing manner.</p>
 
 
 
@@ -21,7 +21,7 @@
 <li>Axios: HTTP client for making API requests.</li>
 <li>React-Redux: State management library for React applications.</li>
 <li>GitHub: Version control and code repository.</li>
-<li>Netlify: Deployment platform for hosting the application.</li>
+<li>Vercel: Deployment platform for hosting the application.</li>
 
 </ul>
 
@@ -31,11 +31,11 @@
 <h2>Search Component</h2>
 <li>Provides an input box for users to enter a currency code.</li>
 <h2>Request Handling</h2>
-<li>When user submit the currency code, the app sends a request to the external API using Axios.</li>
+<li>When a user submits the currency code, the app sends a request to the external API using Axios.</li>
 <li>Displays a loading indicator while waiting for the API response.</li>
-<li>After successfull api request user will get the information about related contries
+<li>After a successful API request user will get the information about related countries
 <h2>Deployment</h2>
-<li>The metta-social Currency  App is deployed using Netlify for hosting the application.</li>
+<li>The metta-social Currency  App is deployed using Vercel for hosting the application.</li>
 
 
 </ul>
